@@ -1,0 +1,120 @@
+@import "../valo/valo";
+
+// Optimize the CSS output
+$v-included-components: remove($v-included-components, accordion);
+$v-included-components: remove($v-included-components, colorpicker);
+$v-included-components: remove($v-included-components, grid);
+$v-included-components: remove($v-included-components, popupview);
+$v-included-components: remove($v-included-components, progressbar);
+$v-included-components: remove($v-included-components, slider);
+$v-included-components: remove($v-included-components, splitpanel);
+$v-included-components: remove($v-included-components, tree);
+$v-included-components: remove($v-included-components, treetable);
+$v-included-components: remove($v-included-components, twincolselect);
+
+// Main layout padding
+$view-padding: round($v-unit-size / 1.5) !default;
+
+// Colors
+$v-app-background-color: #fff;
+$valo-menu-background-color: #00aeef;
+$valo-menu-text-color: #fff;
+$v-link-font-color: $valo-menu-background-color; 
+$v-focus-color: $valo-menu-background-color;
+$v-selection-color: $valo-menu-background-color;
+
+@mixin vaadinsample {
+  	@include valo;
+  	
+  	.v-button {
+  		background-color: darken($v-app-background-color, 4%);
+  		background-image: none;
+  		border-color: darken($v-app-background-color, 10%);
+  		box-shadow: none;
+  		
+  		&:focus,
+  		&:hover,
+  		&.v-pressed {
+  			background: darken($v-app-background-color, 5%);
+  		}
+  		
+  		&.borderless {
+  			background: none;
+  		}
+  	}
+  	
+  	.v-button-primary {
+  		background: $valo-menu-background-color;
+  		color: #fff;
+  		border-color: darken($valo-menu-background-color, 5%);
+  		
+  		&:after {
+  			display: none;
+  		}
+  		
+  		&:focus,
+  		&:hover,
+  		&.v-pressed {
+  			background: darken($valo-menu-background-color, 5%);
+  			color: #fff;
+  		}
+  	}
+  	
+  	.login {
+  		background: $valo-menu-background-color;
+  	}
+  	
+  	.login-panel {
+  		@include valo-panel-style;
+  		padding: $v-unit-size;
+  	}
+  	
+  	.menu-button {
+  		background: transparent;
+  		
+  		&:focus,
+  		&:hover {
+  			background: transparent;
+  		}
+  		
+  		.v-icon {
+	  		background: darken($v-app-background-color, 7%);
+	  		border-radius: 100%;
+	  		font-size: $v-unit-size * 2;
+	  		height: $v-unit-size * 3;
+	  		margin-bottom: 0.15em;
+	  		width: $v-unit-size * 3;
+	  	}
+  	}
+  	
+  	.sidebar {
+  		background: $valo-menu-background-color;
+  		box-shadow: 0 0 10px rgba(0, 0, 0, .35);
+  		color: $valo-menu-text-color;
+  		
+  		.logo {
+  			margin-bottom: $v-unit-size;
+  			
+  			.v-button {
+  				padding: 0;
+  			}
+  		}
+  		
+  		.valo-menuitems {
+  			//border-top: 1px solid darken($valo-menu-background-color, 5%);
+  		}
+  		
+  		.valo-menu-item {
+  			//border-bottom: 1px solid darken($valo-menu-background-color, 5%);
+  			font-size: 1.25em;
+  			padding-bottom: $v-unit-size / 3.5;
+  			padding-top: $v-unit-size / 3.5;
+  			
+  			&:focus,
+			&:hover,
+			&.selected {
+				background-color: darken($valo-menu-background-color, 10%);
+			}
+  		}
+  	}
+}
